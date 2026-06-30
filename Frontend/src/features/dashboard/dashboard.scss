@@ -1,0 +1,238 @@
+// Design tokens
+$color-bg-navbar: rgba(17, 24, 39, 0.7);
+$color-border-navbar: rgba(255, 255, 255, 0.08);
+$color-primary: #2563eb;
+$color-primary-hover: #1d4ed8;
+$color-text-muted: #9ca3af;
+$color-error: #ef4444;
+$color-error-hover: #dc2626;
+
+.dashboard-layout {
+  min-height: 100vh;
+  background-color: #030712;
+  color: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+  padding-top: 5.5rem; // Spacer below fixed navbar
+}
+
+// Simple Main Dashboard Content Area
+.dashboard-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 640px) {
+    padding: 0 1rem;
+  }
+
+  .welcome-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(to right, #ffffff, $color-text-muted);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+// Back Button Navigation
+.back-btn-row {
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 0 1.5rem;
+
+  .back-link-btn {
+    background: transparent;
+    border: none;
+    color: $color-text-muted;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+
+    .arrow-icon {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+  }
+}
+
+// Glassmorphic Input Form Container
+.report-form-card {
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .form-subtext {
+    font-size: 0.88rem;
+    color: $color-text-muted;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .error-banner {
+    background: rgba($color-error, 0.1);
+    border: 1px solid rgba($color-error, 0.2);
+    color: #fca5a5;
+    padding: 0.85rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #e2e8f0;
+
+      .req-star {
+        color: $color-error;
+        margin-left: 0.15rem;
+      }
+    }
+
+    .form-textarea {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.65rem;
+      padding: 0.85rem 1rem;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.5;
+      transition: all 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+
+  .generate-btn {
+    width: 100%;
+    background: linear-gradient(135deg, $color-primary 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border: none;
+    padding: 0.88rem;
+    border-radius: 0.65rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+    }
+  }
+}
+
+// Glowing AI Analyzing Card
+.ai-loader-card {
+  background: rgba(17, 24, 39, 0.45);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 1.25rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 50px rgba(37, 99, 235, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: pulse-border 2s infinite ease-in-out;
+
+  .loader-spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 3.5px solid rgba(255, 255, 255, 0.05);
+    border-top-color: $color-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.75rem 0;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: $color-text-muted;
+    max-width: 450px;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 50px rgba(37, 99, 235, 0.05);
+  }
+  50% {
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 0 60px rgba(37, 99, 235, 0.15);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

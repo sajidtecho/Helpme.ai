@@ -1,0 +1,264 @@
+// Design tokens
+$color-bg-navbar: rgba(17, 24, 39, 0.7);
+$color-border-navbar: rgba(255, 255, 255, 0.08);
+$color-primary: #2563eb;
+$color-primary-hover: #1d4ed8;
+$color-text-muted: #9ca3af;
+$color-accent: #06b6d4;
+$color-accent-purple: #7c3aed;
+
+.home-layout {
+  min-height: 100vh;
+  background-color: #030712;
+  color: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+
+  // Background glow orbs
+  .bg-ambient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.12;
+      animation: float 20s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: $color-primary;
+      top: -100px;
+      right: -50px;
+      animation-duration: 25s;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: $color-accent-purple;
+      bottom: -150px;
+      left: -100px;
+      animation-duration: 30s;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: $color-accent;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.08;
+    }
+  }
+
+  // Hero Section
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 9rem 2rem 4rem 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: #93c5fd;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.05);
+
+      .sparkle-icon {
+        width: 1rem;
+        height: 1rem;
+        color: #60a5fa;
+      }
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 850px;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+
+      @media (max-width: 768px) {
+        font-size: 2.75rem;
+      }
+
+      span {
+        background: linear-gradient(135deg, $color-accent 0%, $color-primary 50%, $color-accent-purple 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: $color-text-muted;
+      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 5rem;
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, $color-primary 0%, #1d4ed8 100%);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0.88rem 2.25rem;
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        transition: all 0.2s ease;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+        @media (max-width: 480px) {
+          width: 100%;
+          text-align: center;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+        }
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #e2e8f0;
+        text-decoration: none;
+        padding: 0.88rem 2.25rem;
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+
+        @media (max-width: 480px) {
+          width: 100%;
+          text-align: center;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.06);
+          border-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+
+    // Feature Highlights Grid
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 2rem;
+      text-align: left;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .feature-card {
+        background: rgba(17, 24, 39, 0.45);
+        border: 1px solid $color-border-navbar;
+        padding: 2.25rem 2rem;
+        border-radius: 1.25rem;
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-color: rgba(37, 99, 235, 0.25);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-wrapper {
+          width: 3rem;
+          height: 3rem;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 1.5rem;
+          color: $color-primary;
+
+          svg {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+
+        h3 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 0.75rem;
+        }
+
+        p {
+          font-size: 0.88rem;
+          color: $color-text-muted;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+}
