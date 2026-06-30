@@ -4,7 +4,7 @@
   "outputDirectory": "Frontend/dist",
   "rewrites": [
     {
-      "source": "/((?!api/).*?)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
