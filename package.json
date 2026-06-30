@@ -6,8 +6,8 @@
     "Frontend"
   ],
   "scripts": {
-    "build": "npm run build --workspace frontend",
-    "build:frontend": "npm run build --workspace frontend",
+    "build": "cd Frontend && npm run build",
+    "build:frontend": "cd Frontend && npm run build",
     "dev:frontend": "npm run dev --workspace frontend",
     "dev:backend": "npm run dev --workspace gen-ai-project"
   }
